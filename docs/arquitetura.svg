@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="660" viewBox="0 0 1100 660" font-family="Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+    </marker>
+  </defs>
+  <rect width="1100" height="660" fill="#ffffff"/>
+
+  <text x="550" y="28" text-anchor="middle" font-size="20" font-weight="bold" fill="#222">Estante de Leitura: arquitetura (Cenário 2)</text>
+
+  <!-- Rede do docker compose -->
+  <rect x="235" y="50" width="580" height="560" rx="14" fill="#f7f9fc" stroke="#7a8aa6" stroke-width="1.5" stroke-dasharray="8 6"/>
+  <text x="250" y="72" font-size="13" fill="#4a5a78" font-weight="bold">docker compose (rede interna)</text>
+
+  <!-- Cliente -->
+  <rect x="25" y="120" width="175" height="90" rx="10" fill="#eeeeee" stroke="#666" stroke-width="1.5"/>
+  <text x="112" y="155" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">Usuário</text>
+  <text x="112" y="177" text-anchor="middle" font-size="12" fill="#444">Swagger UI / cliente HTTP</text>
+
+  <!-- Estante API -->
+  <rect x="270" y="100" width="260" height="130" rx="10" fill="#fce5cd" stroke="#4a86e8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="400" y="132" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">Estante API</text>
+  <text x="400" y="153" text-anchor="middle" font-size="12" fill="#444">API principal · FastAPI · porta 8000</text>
+  <text x="400" y="178" text-anchor="middle" font-size="11" fill="#555">auth JWT · catálogo · estante</text>
+  <text x="400" y="195" text-anchor="middle" font-size="11" fill="#555">recomendações · metas (proxy)</text>
+  <text x="400" y="218" text-anchor="middle" font-size="10" fill="#4a86e8">container Docker</text>
+
+  <!-- Banco da Estante -->
+  <g transform="translate(620,120)">
+    <ellipse cx="60" cy="12" rx="60" ry="12" fill="#d9d9d9" stroke="#555"/>
+    <path d="M0,12 v66 a60,12 0 0 0 120,0 v-66" fill="#d9d9d9" stroke="#555"/>
+    <ellipse cx="60" cy="12" rx="60" ry="12" fill="#e8e8e8" stroke="#555"/>
+    <text x="60" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">SQLite</text>
+    <text x="60" y="68" text-anchor="middle" font-size="11" fill="#444">estante.db</text>
+  </g>
+
+  <!-- Metas API -->
+  <rect x="270" y="420" width="260" height="130" rx="10" fill="#fce5cd" stroke="#4a86e8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="400" y="452" text-anchor="middle" font-size="17" font-weight="bold" fill="#222">Metas de Leitura API</text>
+  <text x="400" y="473" text-anchor="middle" font-size="12" fill="#444">API secundária · FastAPI · porta 8001</text>
+  <text x="400" y="498" text-anchor="middle" font-size="11" fill="#555">leituras · sessões · metas anuais</text>
+  <text x="400" y="515" text-anchor="middle" font-size="11" fill="#555">estatísticas e sequência de dias</text>
+  <text x="400" y="538" text-anchor="middle" font-size="10" fill="#4a86e8">container Docker</text>
+
+  <!-- Banco das Metas -->
+  <g transform="translate(620,440)">
+    <ellipse cx="60" cy="12" rx="60" ry="12" fill="#d9d9d9" stroke="#555"/>
+    <path d="M0,12 v66 a60,12 0 0 0 120,0 v-66" fill="#d9d9d9" stroke="#555"/>
+    <ellipse cx="60" cy="12" rx="60" ry="12" fill="#e8e8e8" stroke="#555"/>
+    <text x="60" y="52" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">SQLite</text>
+    <text x="60" y="68" text-anchor="middle" font-size="11" fill="#444">metas_leitura.db</text>
+  </g>
+
+  <!-- Open Library -->
+  <rect x="865" y="270" width="210" height="120" rx="10" fill="#c9daf8" stroke="#3c5a99" stroke-width="1.5"/>
+  <text x="970" y="305" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">Open Library</text>
+  <text x="970" y="326" text-anchor="middle" font-size="12" fill="#444">API externa pública</text>
+  <text x="970" y="350" text-anchor="middle" font-size="11" fill="#555">/search.json · /works</text>
+  <text x="970" y="367" text-anchor="middle" font-size="11" fill="#555">/subjects · covers</text>
+
+  <!-- Setas -->
+  <line x1="200" y1="165" x2="268" y2="165" stroke="#333" stroke-width="2" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <text x="234" y="152" text-anchor="middle" font-size="10" fill="#333">REST</text>
+  <text x="234" y="186" text-anchor="middle" font-size="10" fill="#333">+ JWT</text>
+
+  <line x1="530" y1="165" x2="618" y2="165" stroke="#333" stroke-width="2" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <text x="574" y="155" text-anchor="middle" font-size="10" fill="#333">SQLAlchemy</text>
+
+  <line x1="530" y1="485" x2="618" y2="485" stroke="#333" stroke-width="2" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <text x="574" y="475" text-anchor="middle" font-size="10" fill="#333">SQLAlchemy</text>
+
+  <line x1="400" y1="232" x2="400" y2="418" stroke="#333" stroke-width="2" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <rect x="412" y="268" width="200" height="112" rx="6" fill="#ffffff" stroke="#bbb"/>
+  <text x="422" y="288" font-size="11" font-weight="bold" fill="#222">REST + cabeçalho X-API-Key</text>
+  <text x="422" y="306" font-size="10" fill="#444">POST/DELETE /leituras</text>
+  <text x="422" y="322" font-size="10" fill="#444">POST/DELETE /sessoes</text>
+  <text x="422" y="338" font-size="10" fill="#444">POST/GET/PUT/DELETE /metas</text>
+  <text x="422" y="354" font-size="10" fill="#444">GET /estatisticas</text>
+  <text x="422" y="370" font-size="10" fill="#777">(chamadas feitas pela Estante API)</text>
+
+  <path d="M530,215 C700,250 760,300 863,320" fill="none" stroke="#333" stroke-width="2" marker-start="url(#seta)" marker-end="url(#seta)"/>
+  <text x="760" y="258" font-size="10" fill="#333">REST (HTTPS)</text>
+
+  <!-- Legenda -->
+  <rect x="845" y="470" width="235" height="140" rx="6" fill="#ffffff" stroke="#999"/>
+  <text x="858" y="492" font-size="12" font-weight="bold" fill="#222">Legenda</text>
+  <rect x="858" y="504" width="16" height="12" fill="#fce5cd" stroke="#4a86e8"/>
+  <text x="882" y="514" font-size="11" fill="#333">módulo desenvolvido</text>
+  <rect x="858" y="526" width="16" height="12" fill="#c9daf8" stroke="#3c5a99"/>
+  <text x="882" y="536" font-size="11" fill="#333">API externa consumida</text>
+  <line x1="858" y1="556" x2="874" y2="556" stroke="#4a86e8" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="882" y="560" font-size="11" fill="#333">container Docker</text>
+  <line x1="858" y1="578" x2="874" y2="578" stroke="#333" stroke-width="2" marker-end="url(#seta)"/>
+  <text x="882" y="582" font-size="11" fill="#333">comunicação HTTP</text>
+  <text x="858" y="602" font-size="10" fill="#777">banco SQLite em volume Docker</text>
+</svg>

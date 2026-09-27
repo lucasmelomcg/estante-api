@@ -1,0 +1,41 @@
+# Sobe os dois componentes desenvolvidos:
+#   - estante-api        (API principal)   -> http://localhost:8000/docs
+#   - metas-leitura-api  (API secundária)  -> http://localhost:8001/docs
+#
+# Pré-requisito: os dois repositórios clonados lado a lado na mesma pasta:
+#   ./estante-api
+#   ./metas-leitura-api
+
+services:
+  estante-api:
+    build: .
+    container_name: estante-api
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: sqlite:////app/data/estante.db
+      JWT_SECRET: ${JWT_SECRET:-troque-esta-chave-secreta-jwt-em-producao-2026}
+      METAS_API_URL: http://metas-leitura-api:8001
+      METAS_API_KEY: ${METAS_API_KEY:-chave-interna-dev}
+    volumes:
+      - estante-dados:/app/data
+    depends_on:
+      metas-leitura-api:
+        condition: service_healthy
+    restart: unless-stopped
+
+  metas-leitura-api:
+    build: ../metas-leitura-api
+    container_name: metas-leitura-api
+    ports:
+      - "8001:8001"
+    environment:
+      DATABASE_URL: sqlite:////app/data/metas_leitura.db
+      API_KEY: ${METAS_API_KEY:-chave-interna-dev}
+    volumes:
+      - metas-dados:/app/data
+    restart: unless-stopped
+
+volumes:
+  estante-dados:
+  metas-dados:
